@@ -1,0 +1,17 @@
+{
+  "name": "webpack-tutorial",
+  "version": "0.0.1",
+  "main": "bundle.js",
+  "scripts": {
+    "build": "webpack --progress --colors",
+    "watch": "webpack-dev-server --progress --colors",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -f bundle.js"
+  },
+  "devDependencies": {
+    "css-loader": "^0.23.1",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.0",
+    "webpack-dev-server": "^1.14.1"
+  }
+}
