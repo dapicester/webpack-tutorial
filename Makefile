@@ -1,4 +1,4 @@
 all: bundle.js
 
 bundle.js: src/entry.js
-	webpack $< $@
+	webpack $< $@ --module-bind 'css=style!css'
