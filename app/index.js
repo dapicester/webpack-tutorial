@@ -33,6 +33,10 @@ const AddFriend = React.createClass({
         };
     },
 
+    propTypes: {
+        addNew: React.PropTypes.func.isRequired
+    },
+
     updateNewFriend: function(ev) {
         this.setState({
             newFriend: ev.target.value
@@ -57,6 +61,12 @@ const AddFriend = React.createClass({
 });
 
 const ShowList = React.createClass({
+    getDefaultProps: function() {
+        return {
+            names: []
+        };
+    },
+
     render: function() {
         const listItems = this.props.names.map(friend => {
             return <li>{friend}</li>;
