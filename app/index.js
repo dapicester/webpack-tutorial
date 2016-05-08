@@ -1,6 +1,3 @@
-const React = require("react");
-const ReactDOM = require("react-dom");
-
 const FriendsContainer = React.createClass({
     getInitialState: function() {
         return {
