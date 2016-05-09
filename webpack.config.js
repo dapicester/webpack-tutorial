@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -21,10 +20,5 @@ module.exports = {
             filename: 'index.html',
             inject: 'body'
         }),
-        new webpack.ProvidePlugin({
-            'React': 'react',
-            'ReactDOM': 'react-dom',
-            'Redux': 'redux'
-        })
     ]
 };
