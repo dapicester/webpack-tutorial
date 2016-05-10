@@ -1,4 +1,4 @@
-const assert = require('chai').assert
+import { assert } from 'chai'
 import * as actions from '../../app/actions'
 
 import configureStore from 'redux-mock-store'
