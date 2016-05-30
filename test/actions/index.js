@@ -1,6 +1,12 @@
 const assert = require('chai').assert
 import * as actions from '../../app/actions'
 
+import configureStore from 'redux-mock-store'
+import thunk from 'redux-thunk'
+
+const middlewares = [ thunk ]
+const mockStore = configureStore(middlewares)
+
 describe('actions', () => {
     it('addTodo', () => {
         const text = 'Todo text'
@@ -22,5 +28,19 @@ describe('actions', () => {
         const filter = 'SHOW_ALL'
         const expected = { type: 'SET_VISIBILITY_FILTER', filter }
         assert.deepEqual(actions.setVisibilityFilter(filter), expected)
+    })
+
+    it('fetchFromServer', (done) => {
+        const text = 'Todo text'
+        const expected = [{ type: 'ADD_TODO', id: 2, text }]
+
+        const initialState = { todos: [] };
+        const store = mockStore(initialState);
+
+        let unsubscribe = store.subscribe(() => {
+            assert.deepEqual(store.getActions(), expected)
+            done()
+        })
+        store.dispatch(actions.fetchFromServer(text))
     })
 })

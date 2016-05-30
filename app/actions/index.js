@@ -20,3 +20,9 @@ export const setVisibilityFilter = (filter) => {
         filter
     }
 }
+
+export const fetchFromServer = (message) => {
+    return dispatch => {
+        setTimeout(() => dispatch(addTodo(message)), 1000)
+    }
+}
